@@ -1,41 +1,78 @@
-ago. 29, 2024 10:37:26 AM liquibase.changelog
-INFORMAÇÕES: Reading resource: db/changelog/migrations/db.changelog-202408191938.sql
-ago. 29, 2024 10:37:26 AM liquibase.changelog
-INFORMAÇÕES: Reading resource: db/changelog/migrations/db.changelog-202408210954.sql
-ago. 29, 2024 10:37:26 AM liquibase.changelog
-INFORMAÇÕES: Reading resource: db/changelog/migrations/db.changelog-202408211004.sql
-ago. 29, 2024 10:37:26 AM liquibase.changelog
-INFORMAÇÕES: Reading resource: db/changelog/migrations/db.changelog-202408211005.sql
-ago. 29, 2024 10:37:26 AM liquibase.changelog
-INFORMAÇÕES: Reading resource: db/changelog/migrations/db.changelog-202408281807.sql
-ago. 29, 2024 10:37:26 AM liquibase.changelog
-INFORMAÇÕES: Reading from board.DATABASECHANGELOG
-Database is up to date, no changesets to execute
-ago. 29, 2024 10:37:26 AM liquibase.changelog
-INFORMAÇÕES: Reading from board.DATABASECHANGELOG
-
-UPDATE SUMMARY
-Run:                          0
-Previously run:               5
-Filtered out:                 0
--------------------------------
-Total change sets:            5
-
-ago. 29, 2024 10:37:26 AM liquibase.util
-INFORMAÇÕES: UPDATE SUMMARY
-ago. 29, 2024 10:37:26 AM liquibase.util
-INFORMAÇÕES: Run:                          0
-ago. 29, 2024 10:37:26 AM liquibase.util
-INFORMAÇÕES: Previously run:               5
-ago. 29, 2024 10:37:26 AM liquibase.util
-INFORMAÇÕES: Filtered out:                 0
-ago. 29, 2024 10:37:26 AM liquibase.util
-INFORMAÇÕES: -------------------------------
-ago. 29, 2024 10:37:26 AM liquibase.util
-INFORMAÇÕES: Total change sets:            5
-ago. 29, 2024 10:37:26 AM liquibase.util
-INFORMAÇÕES: Update summary generated
-ago. 29, 2024 10:37:26 AM liquibase.lockservice
-INFORMAÇÕES: Successfully released change log lock
-ago. 29, 2024 10:37:26 AM liquibase.command
+jul. 20, 2025 11:37:37 PM liquibase.changelog
+INFORMAÇÕES: Reading resource: db/changelog/migrations/01-create-table-task.xml
+jul. 20, 2025 11:37:37 PM liquibase.parser
+GRAVE: cvc-elt.1.a: Não foi possível encontrar a declaração do elemento 'changeSet'.
+jul. 20, 2025 11:37:37 PM liquibase.command
+INFORMAÇÕES: Logging exception.
+ERROR: Exception Details
+ERROR: Exception Primary Class:  SAXParseException
+ERROR: Exception Primary Reason:  cvc-elt.1.a: Não foi possível encontrar a declaração do elemento 'changeSet'.
+ERROR: Exception Primary Source:  MySQL 9.3.0
+jul. 20, 2025 11:37:37 PM liquibase.command
 INFORMAÇÕES: Command execution complete
+liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: Error parsing line 1 column 32 of db/changelog/migrations/01-create-table-task.xml: cvc-elt.1.a: Não foi possível encontrar a declaração do elemento 'changeSet'.
+	at liquibase.command.CommandScope.execute(CommandScope.java:258)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1290)
+	at liquibase.Liquibase.update(Liquibase.java:205)
+	at liquibase.Liquibase.update(Liquibase.java:188)
+	at liquibase.Liquibase.update(Liquibase.java:175)
+	at liquibase.Liquibase.update(Liquibase.java:155)
+	at br.com.dio.persistence.migration.MigrationStrategy.executeMigration(MigrationStrategy.java:36)
+	at br.com.dio.Main.main(Main.java:15)
+Caused by: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: Error parsing line 1 column 32 of db/changelog/migrations/01-create-table-task.xml: cvc-elt.1.a: Não foi possível encontrar a declaração do elemento 'changeSet'.
+	at liquibase.parser.core.xml.AbstractChangeLogParser.parse(AbstractChangeLogParser.java:25)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.lambda$getDatabaseChangeLog$0(DatabaseChangelogCommandStep.java:129)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:176)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.getDatabaseChangeLog(DatabaseChangelogCommandStep.java:128)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.run(DatabaseChangelogCommandStep.java:87)
+	at liquibase.command.CommandScope.execute(CommandScope.java:220)
+	... 12 more
+Caused by: liquibase.exception.SetupException: Error parsing line 1 column 32 of db/changelog/migrations/01-create-table-task.xml: cvc-elt.1.a: Não foi possível encontrar a declaração do elemento 'changeSet'.
+	at liquibase.changelog.DatabaseChangeLog.includeAll(DatabaseChangeLog.java:807)
+	at liquibase.changelog.DatabaseChangeLog.handleChildNodeHelper(DatabaseChangeLog.java:540)
+	at liquibase.changelog.DatabaseChangeLog.handleChildNode(DatabaseChangeLog.java:461)
+	at liquibase.changelog.DatabaseChangeLog.load(DatabaseChangeLog.java:428)
+	at liquibase.parser.core.xml.AbstractChangeLogParser.parse(AbstractChangeLogParser.java:23)
+	... 18 more
+Caused by: liquibase.exception.LiquibaseException: Error parsing line 1 column 32 of db/changelog/migrations/01-create-table-task.xml: cvc-elt.1.a: Não foi possível encontrar a declaração do elemento 'changeSet'.
+	at liquibase.changelog.DatabaseChangeLog.include(DatabaseChangeLog.java:1038)
+	at liquibase.changelog.DatabaseChangeLog.lambda$includeAll$2(DatabaseChangeLog.java:802)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.changelog.DatabaseChangeLog.includeAll(DatabaseChangeLog.java:799)
+	... 22 more
+Caused by: liquibase.exception.ChangeLogParseException: Error parsing line 1 column 32 of db/changelog/migrations/01-create-table-task.xml: cvc-elt.1.a: Não foi possível encontrar a declaração do elemento 'changeSet'.
+	at liquibase.parser.core.xml.XMLChangeLogSAXParser.parseToNode(XMLChangeLogSAXParser.java:130)
+	at liquibase.parser.core.xml.AbstractChangeLogParser.parse(AbstractChangeLogParser.java:15)
+	at liquibase.changelog.DatabaseChangeLog.include(DatabaseChangeLog.java:1010)
+	... 28 more
+Caused by: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 32; cvc-elt.1.a: Não foi possível encontrar a declaração do elemento 'changeSet'.
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:135)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:396)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:284)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.handleStartElement(XMLSchemaValidator.java:2133)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.startElement(XMLSchemaValidator.java:830)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.scanStartElement(XMLNSDocumentScannerImpl.java:374)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl$NSContentDriver.scanRootElementHook(XMLNSDocumentScannerImpl.java:613)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:3079)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:836)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:542)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:889)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:825)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:637)
+	at liquibase.parser.core.xml.XMLChangeLogSAXParser.parseToNode(XMLChangeLogSAXParser.java:121)
+	... 30 more
