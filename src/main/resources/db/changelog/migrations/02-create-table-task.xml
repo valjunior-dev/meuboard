@@ -1,0 +1,8 @@
+<changeSet id="2" author="seu_nome">
+    <createTable tableName="tarefa">
+        <column name="id" type="INT">
+            <constraints primaryKey="true" nullable="false"/>
+        </column>
+        <column name="titulo" type="VARCHAR(255)"/>
+    </createTable>
+</changeSet>

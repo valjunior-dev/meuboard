@@ -12,7 +12,7 @@ public class BoardColumnEntity {
 
     private Long id;
     private String name;
-    private int order;
+    private int columnOrder;
     private BoardColumnKindEnum kind;
     private BoardEntity board = new BoardEntity();
     @ToString.Exclude
